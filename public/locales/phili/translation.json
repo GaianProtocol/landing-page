@@ -1,0 +1,131 @@
+{
+  "navigation": {
+    "Product": {
+      "label": "Produkto",
+      "submenu": {
+        "paymentDapp": "Payment dApp",
+        "qrScanner": "Mag-scan Para Magbayad"
+      }
+    },
+    "Developers": {
+      "label": "Mga Developer"
+    },
+    "Blog": {
+      "label": "Blog"
+    },
+    "About": {
+      "label": "Tungkol",
+      "submenu": {
+        "whyGaian": "Bakit Gaian",
+        "brandkit": "Brand Kit"
+      }
+    },
+    "Support": {
+      "label": "Suporta",
+      "submenu": {
+        "telegram": "Telegram",
+        "email": "Suporta sa Email"
+      }
+    }
+  },
+  "common": {
+    "english": "Ingles",
+    "scanToPay": "SCAN PARA MAGBAYAD",
+    "getStarted": "Magsimula"
+  },
+  "heroSection": {
+    "title": {
+      "The": "Ang",
+      "Neobank": "Neobank",
+      "For": "Parasa",
+      "Business": "Negosyo",
+      "Everyone": "Lahat"
+    },
+    "requestBusiness": "HUMILING PARA SA NEGOSYO",
+    "launchApp": "ILUNSAD ANG APP"
+  },
+  "featureSection": {
+    "tag": "TAMPOK",
+    "title": "Isang kumpletong stablecoin payment stack para sa pagbuo, pagsasama, at pag-scale sa buong mundo.",
+    "subtitle": "Mabilis, mura, at nasusukat",
+
+    "items": {
+      "sdk": {
+        "title": "Open Source SDK",
+        "desc": "I-fork ang aming repo at bumuo ng sariling app",
+        "cta": "Alamin ang tungkol sa SDK"
+      },
+      "api": {
+        "title": "API Gateway",
+        "desc": "Ikonekta ang Gaian API sa iyong kasalukuyang platform",
+        "cta": "Makipag-ugnayan sa negosyo"
+      },
+      "qr": {
+        "title": "QR Integration",
+        "desc": "I-scan at magbayad gamit ang stablecoins sa loob ng ilang segundo",
+        "cta": "Makipag-ugnayan sa negosyo"
+      },
+      "passkey": {
+        "title": "On-ramp by Passkey",
+        "desc": "Tahimik na onboarding para sa Web2 users",
+        "cta": "Mag-book ng Demo"
+      }
+    }
+  },
+  "trustedSection": {
+    "tag": "Pinagkakatiwalaan ng",
+    "headline": {
+      "strong": "May Karanasan",
+      "rest": "Sa Larangan Mula Pa Noon"
+    },
+    "button": "Magbasa pa"
+  },
+  "winnerSection": {
+    "tag": {
+      "winner": "Nagwagi ",
+      "from": "Mula sa"
+    }
+  },
+  "faqSection": {
+    "tag": "FAQ",
+    "title": {
+      "main": "May Mga Tanong Ka?",
+      "highlight": "Narito ang mga Sagot Namin!"
+    },
+    "items": {
+      "001": {
+        "question": "Ano ang Gaian?",
+        "answer": "Ang Gaian ay isang stablecoin-based na pinansyal na imprastraktura na tumutulong sa mga negosyo na maabot ang mga unbanked user sa mga umuusbong na merkado. Nagbibigay kami ng mga pangunahing solusyon tulad ng On-ramp at Off-ramp upang magpalit agad sa pagitan ng fiat at stablecoins; kasama na ang QR code payments para sa paggamit ng crypto sa mga lokal na merchant."
+      },
+      "002": {
+        "question": "Gaano katagal karaniwang tumatagal ang mga proyekto?",
+        "answer": "Ang tagal ng proyekto ay nag-iiba depende sa kahirapan at mga kinakailangan. Karaniwang tumatagal ng 2–4 na linggo ang mga simpleng integration, habang 6–12 na linggo naman para sa mas kumplikadong implementasyon. Nakikipagtrabaho kami nang malapit sa inyong team para magtakda ng makatotohanang timeline at milestones."
+      },
+      "003": {
+        "question": "Kailangan ba ng crypto wallet ang user o negosyo para gamitin ang app o imprastruktura?",
+        "answer": "Hindi kailangan ng user ng existing crypto wallet. Ang aming imprastruktura ay may embedded wallet solutions na nagpapadali sa paggamit ng crypto payments sa pamilyar na interface. Kami na ang bahala sa likod ng sistema habang pinapadali namin ang karanasan para sa user."
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "product": {
+        "title": "Produkto",
+        "items": {
+          "paymentDapp": "Payment dApp",
+          "qrScanner": "Scan Para Magbayad",
+          "qrPaymentSDK": "QR Payment API/SDK",
+          "onRampByPasskey": "On-Ramp Gamit ang Passkey"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "items": {
+          "privacy": "Patakaran sa Privacy",
+          "terms": "Mga Tuntunin ng Serbisyo",
+          "refund": "Pagkansela at Pag-refund"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,226 @@
+
+
+@layer utilities {
+  .border-gradient {
+    background: linear-gradient(90deg, #8b9bad 0%, #f04591 55%, #efdc20 100%);
+    /* -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude; */
+  }
+  .custom-dashed-line {
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      #55ccff 0,
+      #55ccff 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+/* Regular Styles */
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Medium.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Italic Styles */
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-MediumItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+* {
+  font-family: "Aeonik", sans-serif;
+  font-style: normal;
+  color: #163300;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.wallet-adapter-modal-list .wallet-adapter-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  background: linear-gradient(
+    80.17deg,
+    #27beff 8.52%,
+    #6fd4ff 55.08%
+  ) !important;
+  border: 2px solid rgba(1, 147, 209, 1) !important;
+  border-radius: 16px !important;
+}
+.wallet-adapter-button {
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start !important;
+  align-items: center;
+  padding: 16px 32px;
+  background: linear-gradient(
+    80.17deg,
+    #27beff 8.52%,
+    #6fd4ff 55.08%
+  ) !important;
+  border: 2px solid rgba(1, 147, 209, 1) !important;
+  border-radius: 16px !important;
+}
+.wallet-adapter-button-start-icon {
+  margin-right: 0 !important;
+}
+
+.info-wallet .wallet-adapter-button .wallet-adapter-button-start-icon {
+  display: none !important;
+}
+.info-wallet .wallet-adapter-button {
+  background: transparent !important;
+  border: none !important;
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  text-align: center;
+  padding: 20px 32px !important;
+  height: 56px !important;
+}
+
+.scrollHidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollHidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.border-card {
+  @apply border border-solid border-white border-opacity-10;
+}
+.card {
+  @apply bg-gradient-light p-4 rounded-xl border-card bg-opacity-10 backdrop-blur-md;
+}
+@media (max-width: 768px) {
+  .wallet-adapter-button {
+    padding: 8px 12px !important;
+    height: 40px !important;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.blue-light-area {
+  background: radial-gradient(circle, #66cc3362 10%, transparent 50%);
+}
+
+.event-item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+.swiper {
+  overflow: unset;
+}
+
+.session-title {
+  @apply xl:text-5xl lg:text-3xl text-2xl;
+}

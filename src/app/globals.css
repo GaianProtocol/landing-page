@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .border-gradient {
+    background: linear-gradient(90deg, #8b9bad 0%, #f04591 55%, #efdc20 100%);
+    /* -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude; */
+  }
+  .custom-dashed-line {
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      #55ccff 0,
+      #55ccff 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+
+/* Regular Styles */
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Medium.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Italic Styles */
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-MediumItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/font/Aeonik-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+* {
+  font-family: "Aeonik", sans-serif;
+  font-style: normal;
+  color: #163300;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

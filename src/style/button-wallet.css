@@ -1,0 +1,5 @@
+.connect-profile .wallet-adapter-button {
+  height: 38px;
+  background: linear-gradient(180deg, #8559ff 0%, #784af6 100%) !important;
+  border-radius: 31px;
+}

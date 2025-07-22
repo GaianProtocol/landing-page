@@ -1,0 +1,7 @@
+export enum SectionHomePage {
+  PRODUCT = "PRODUCT",
+  OUR_ACHIEVEMENTS = "OUR_ACHIEVEMENTS",
+  HOW_YOU_PROFIT = "HOW_YOU_PROFIT",
+  FAQ = "FAQ",
+  DOCS = "DOCS",
+}

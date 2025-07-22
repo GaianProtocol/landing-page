@@ -1,0 +1,130 @@
+{
+  "navigation": {
+    "Product": {
+      "label": "Product",
+      "submenu": {
+        "paymentDapp": "Payment dApp",
+        "qrScanner": "Scan To Pay"
+      }
+    },
+    "Developers": {
+      "label": "Developers"
+    },
+    "Blog": {
+      "label": "Blog"
+    },
+    "About": {
+      "label": "About",
+      "submenu": {
+        "whyGaian": "Why Gaian",
+        "brandkit": "Brand Kit"
+      }
+    },
+    "Support": {
+      "label": "Support",
+      "submenu": {
+        "telegram": "Telegram",
+        "email": "Email Support"
+      }
+    }
+  },
+  "common": {
+    "english": "English",
+    "scanToPay": "SCAN TO PAY",
+    "getStarted": "Get Started"
+  },
+  "heroSection": {
+    "title": {
+      "The": "The",
+      "Neobank": "Neobank",
+      "For": "For",
+      "Business": "Business",
+      "Everyone": "Everyone"
+    },
+    "requestBusiness": "REQUEST FOR BUSINESS",
+    "launchApp": "LAUNCH APP"
+  },
+  "featureSection": {
+    "tag": "FEATURE",
+    "title": "A complete stablecoin payment stack for building, integrating, and scaling globally.",
+    "subtitle": "Fast, low-cost, and scalable",
+    "items": {
+      "sdk": {
+        "title": "Open Source SDK",
+        "desc": "Fork our repo and build your own app",
+        "cta": "Learn about SDK"
+      },
+      "api": {
+        "title": "API Gateway",
+        "desc": "Connect API Gaian to your existing platform",
+        "cta": "Contact for Business"
+      },
+      "qr": {
+        "title": "QR Integration",
+        "desc": "Scan & pay with stablecoins in seconds",
+        "cta": "Contact for Business"
+      },
+      "passkey": {
+        "title": "On-ramp by Passkey",
+        "desc": "Invisible onboard web 2 users",
+        "cta": "Book Demo"
+      }
+    }
+  },
+  "trustedSection": {
+    "tag": "Trusted by",
+    "headline": {
+      "strong": "Experienced",
+      "rest": "In The Field From"
+    },
+    "button": "Read More"
+  },
+  "winnerSection": {
+    "tag": {
+      "winner": "Winner",
+      "from": "from"
+    }
+  },
+  "faqSection": {
+    "tag": "FAQ",
+    "title": {
+      "main": "Got Questions?",
+      "highlight": "We've Got Answers!"
+    },
+    "items": {
+      "001": {
+        "question": "What is Gaian?",
+        "answer": "Gaian is a stablecoin-based financial infrastructure that helps businesses reach unbanked users across emerging markets..."
+      },
+      "002": {
+        "question": "How long do projects typically take?",
+        "answer": "Project timelines vary depending on complexity and requirements. Typically, simple integrations take 2–4 weeks..."
+      },
+      "003": {
+        "question": "Do users or business need a crypto wallet to use app or infrastructure?",
+        "answer": "No, users don't need an existing crypto wallet. Our infrastructure provides embedded wallet solutions..."
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "product": {
+        "title": "Product",
+        "items": {
+          "paymentDapp": "Payment dApp",
+          "qrScanner": "Scan To Pay",
+          "qrPaymentSDK": "QR Payment API/SDK",
+          "onRampByPasskey": "On Ramp By Passkey"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "items": {
+          "privacy": "Privacy Policy",
+          "terms": "Terms of Service",
+          "refund": "Refund and Cancellation"
+        }
+      }
+    }
+  }
+}

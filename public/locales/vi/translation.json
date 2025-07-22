@@ -1,0 +1,24 @@
+{
+  "navigation": {
+    "Product": "Sản phẩm",
+    "Developers": "Nhà phát triển",
+    "About": "Giới thiệu",
+    "Support": "Hỗ trợ"
+  },
+  "common": {
+    "english": "Tiếng Anh",
+    "scanToPay": "QUÉT ĐỂ THANH TOÁN",
+    "getStarted": "Bắt đầu ngay"
+  },
+  "heroSection": {
+    "title": {
+      "the": "Ngân hàng",
+      "neobank": "Số",
+      "for": "Dành cho",
+      "Business": "Doanh nghiệp",
+      "Everyone": "Mọi người"
+    },
+    "requestBusiness": "YÊU CẦU CHO DOANH NGHIỆP",
+    "launchApp": "MỞ ỨNG DỤNG"
+  }
+}
