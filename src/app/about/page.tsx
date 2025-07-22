@@ -27,7 +27,7 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-darkGreen">
               About Gaian: Open Infra for a World in Flow
             </h1>
             <p className="text-base md:text-lg text-gray-600 max-w-md">
@@ -109,7 +109,7 @@ export default function AboutUsPage() {
           {/* Right Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-darkGreen">
                 Our Mission
               </h2>
               <p className="text-base md:text-lg text-gray-600">
@@ -120,7 +120,7 @@ export default function AboutUsPage() {
               </p>
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-darkGreen">
                 Our Value
               </h2>
               <p className="text-base md:text-lg text-gray-600">

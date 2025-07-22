@@ -22,7 +22,7 @@ export default function BlogPageDetail({ post }: BlogPageDetailProps) {
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-green-50 to-white w-full">
-      <div className="max-w-4xl mx-auto px-4 py-28 prose prose-xl dark:prose-invert">
+      <div className="max-w-4xl mx-auto px-4 py-28 prose prose-xl ">
         <div className="flex justify-between items-center mb-10">
           {" "}
           {/* Added items-center for vertical alignment */}

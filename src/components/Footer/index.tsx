@@ -1,15 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
-import { LinkedIn, Telegram, X } from "@/assets/svgs"; // Assuming these are SVG components
-import LogoSVG from "@/assets/svgs/logo.svg"; // Assuming this is an SVG component
+import Image from "next/image"
+import Link from "next/link"
+// Assuming these are paths to SVG files, not React components, as used with next/image src prop
+import { LinkedIn, Telegram, X } from "@/assets/svgs"
+import LogoSVG from "@/assets/svgs/logo.svg"
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-gradient-to-t from-textGreen to-slate-100">
-      {" "}
-      {/* Removed bg-gradient-to-t from here */}
+    <footer className="relative w-full overflow-hidden bg-gradient-to-t from-textGreen to-slate-100 z-0">
       {/* Footer Decord (Background Image) */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0">
         <Image
           src={"/bg-section-1/footer-decord.webp"}
           alt="Footer Decoration"
@@ -20,9 +19,7 @@ export default function Footer() {
       {/* Content Wrapper with higher z-index */}
       <div className="relative z-10">
         {/* Background curve */}
-        {/* This div is now explicitly within the z-10 stacking context */}
         <div className="w-full h-28 bg-white rounded-b-full" />
-
         {/* Footer Content */}
         <div className="max-w-screen-xl mx-auto px-10 py-20">
           <div className="flex flex-col justify-between h-full gap-10">
@@ -34,6 +31,8 @@ export default function Footer() {
                     src={LogoSVG || "/placeholder.svg"}
                     className="w-52"
                     alt="Logo"
+                    width={208} // Inferred from w-52 (208px)
+                    height={50} // Estimated height
                   />
                 </Link>
               </div>
@@ -41,9 +40,7 @@ export default function Footer() {
                 {/* Product Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">
-                      Product
-                    </h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">Product</h3>
                     <Link
                       href="https://app.gaian.network"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
@@ -73,9 +70,7 @@ export default function Footer() {
                 {/* Legal Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">
-                      Legal
-                    </h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">Legal</h3>
                     <Link
                       href="https://developer.gaian.network/privacy-policy-1"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
@@ -107,6 +102,8 @@ export default function Footer() {
                             src={Telegram || "/placeholder.svg"}
                             alt="Telegram"
                             className="w-4 h-4"
+                            width={16} // Inferred from w-4
+                            height={16} // Inferred from h-4
                           />
                         </Link>
                         <Link
@@ -119,6 +116,8 @@ export default function Footer() {
                             src={X || "/placeholder.svg"}
                             alt="Twitter X"
                             className="w-4 h-4"
+                            width={16} // Inferred from w-4
+                            height={16} // Inferred from h-4
                           />
                         </Link>
                         <Link
@@ -131,6 +130,8 @@ export default function Footer() {
                             src={LinkedIn || "/placeholder.svg"}
                             alt="LinkedIn"
                             className="w-4 h-4"
+                            width={16} // Inferred from w-4
+                            height={16} // Inferred from h-4
                           />
                         </Link>
                       </div>
@@ -156,6 +157,8 @@ export default function Footer() {
                       src={Telegram || "/placeholder.svg"}
                       alt="Telegram"
                       className="w-4 h-4"
+                      width={16} // Inferred from w-4
+                      height={16} // Inferred from h-4
                     />
                   </Link>
                   <Link
@@ -168,6 +171,8 @@ export default function Footer() {
                       src={X || "/placeholder.svg"}
                       alt="Twitter X"
                       className="w-4 h-4"
+                      width={16} // Inferred from w-4
+                      height={16} // Inferred from h-4
                     />
                   </Link>
                   <Link
@@ -180,6 +185,8 @@ export default function Footer() {
                       src={LinkedIn || "/placeholder.svg"}
                       alt="LinkedIn"
                       className="w-4 h-4"
+                      width={16} // Inferred from w-4
+                      height={16} // Inferred from h-4
                     />
                   </Link>
                 </div>
@@ -189,5 +196,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
