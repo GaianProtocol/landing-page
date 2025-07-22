@@ -147,7 +147,7 @@ const SectionFour = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h1 className="flex flex-row gap-3 text-2xl md:text-6xl pl-5 md:pl-16 font-bold">
+        <h1 className="flex flex-row gap-3 text-2xl md:text-5xl pl-5 md:pl-16 font-bold">
           <span className="text-darkGreen">
             {/* {t("winnerSection.tag.winner")}{" "} */}
             Winner

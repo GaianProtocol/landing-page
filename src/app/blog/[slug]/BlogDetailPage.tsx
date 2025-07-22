@@ -65,7 +65,7 @@ export default function BlogPageDetail({ post }: BlogPageDetailProps) {
           />
         )}
 
-        <div dangerouslySetInnerHTML={{ __html: post.html || "" }} />
+        <div className="text-gray/50" dangerouslySetInnerHTML={{ __html: post.html || "" }} />
       </div>
     </section>
   );

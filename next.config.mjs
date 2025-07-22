@@ -7,11 +7,18 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ["pbs.twimg.com", "https://gaian-blog.ghost.io/"],
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "gaian-blog.ghost.io",
+      },
+      {
+        protocol: "https",
         hostname: "static.ghost.org",
+      },
+      {
+        protocol: "https",
+        hostname: "pbs.twimg.com",
       },
     ],
   },
