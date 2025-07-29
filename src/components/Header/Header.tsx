@@ -1,6 +1,6 @@
 "use client"; // Make it a client component
 import { gsap } from "gsap";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight, ChevronUp, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ButtonPrimary from "../Button/ButtonPrimary";
 import ContactPopup from "../Popup/ContactPopup";
@@ -138,20 +138,23 @@ export default function Header() {
               <div key={item.id} className="relative group h-full">
                 <button className="text-[#626566] hover:text-primary hover:font-bold font-semibold tracking-[-0.005em] text-base px-4 py-2.5 h-full flex items-center font-geist transition-all">
                   {item.id}
+                  <ChevronUp className="ml-2 w-4 h-4 transition-transform group-hover:rotate-180 duration-200" />
                 </button>
-                <div className="absolute left-0 top-full mt-1 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                <div className="absolute left-0 top-full mt-2 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible scale-90 translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden">
+                  <div className="p-2">
                   {item.submenu.map((sub) => (
                     <a
                       key={sub.id}
                       href={sub.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:text-green-700 hover:bg-green-50 transition-all duration-150 group"
+                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:translate-x-1 transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] rounded-xl transform opacity-0 translate-y-5 scale-95 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
                     >
                       <span className="font-medium">{sub.name}</span>
                       <ChevronRight className="w-4 h-4 text-green-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-transform duration-150" />
                     </a>
                   ))}
+                  </div>
                 </div>
                 <div
                   className={cn(
