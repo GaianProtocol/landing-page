@@ -14,7 +14,111 @@ import LabelTag from "@/components/Text/TextTitleSection";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-const testimonials = [
+
+// Types
+interface Testimonial {
+  id: number;
+  name: string;
+  handle: string;
+  logo_worker?: string;
+  avatar: string;
+  text: string;
+  height: string;
+  href: string;
+};
+
+interface ScrollingColumnProps {
+  testimonials: Testimonial[];
+  speed: number;
+  direction?: "up" | "down";
+};
+
+// Component for individual scrolling column
+const ScrollingColumn: React.FC<ScrollingColumnProps> = ({ testimonials, speed, direction = "up" }) => {
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  
+  return (
+    <div className="overflow-hidden h-[800px] relative">
+      <motion.div
+        className="space-y-6"
+        animate={{
+          y: direction === "up" ? ["0%", "-50%"] : ["-50%", "0%"]
+        }}
+        transition={{
+          duration: speed,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop"
+        }}
+        style={{
+          willChange: 'transform'
+        }}
+      >
+        {duplicatedTestimonials.map((testimonial, index) => (
+          <motion.div
+            key={`${testimonial.id}-${index}`}
+            initial={{ rotateX: -90, opacity: 0 }}
+            whileInView={{ rotateX: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div
+              className="min-h-[120px] bg-green-50 border border-darkGreen/40 rounded-md p-1 hover:shadow-lg transition-shadow duration-300 cursor-pointer flex flex-col"
+              onClick={() => window.open(testimonial.href, '_blank')}
+            >
+              <div className="flex bg-textGreen/40 rounded-md p-2 items-start space-x-3 mb-4 overflow-hidden">
+                <Image
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                />
+                <div className="min-w-0 flex-1">
+                  <h4 className="flex flex-row gap-1 font-semibold text-gray-900 text-sm">
+                    {testimonial.name}{" "}
+                    {testimonial.logo_worker ? (
+                      <Image
+                        src={testimonial.logo_worker}
+                        alt="logo_worker"
+                        className="w-4 h-4"
+                        width={16}
+                        height={16}
+                        loading="lazy"
+                      />
+                    ) : null}
+                  </h4>
+                  <p className="text-gray-500 text-sm">
+                    {testimonial.handle}
+                  </p>
+                </div>
+                <div className="text-green-600 text-xl">
+                  <Image
+                    src="/bg-section-1/x.png"
+                    alt="logo X"
+                    className="w-auto"
+                    width={32}
+                    height={32}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="overflow-hidden px-3 flex-1 pb-2">
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {testimonial.text}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Tether Asia",
@@ -244,6 +348,19 @@ const Section_Third = () => {
     { name: "animoca", logo: animoca_brands, className: "h-10" },
   ];
 
+  // Split testimonials into 4 columns
+  const getColumnTestimonials = (colIndex: number): Testimonial[] => {
+    return testimonials.filter((_, i) => i % 4 === colIndex);
+  };
+
+  // Different speeds and directions for variety
+  const columnSettings: Array<{ speed: number; direction: "up" | "down" }> = [
+    { speed: 20, direction: "up" },
+    { speed: 25, direction: "up" },
+    { speed: 22, direction: "up" },
+    { speed: 27, direction: "up" },
+  ];
+
   return (
     <div className="bg-green-50 py-16 px-4">
       <div className="max-w-screen-xl mx-auto">
@@ -304,78 +421,18 @@ const Section_Third = () => {
           {/* Testimonials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-2">
             {[0, 1, 2, 3].map((colIndex) => (
-              <div
+              <ScrollingColumn
                 key={colIndex}
-                className="overflow-hidden h-[800px] relative"
-              >
-                <div className="animate-marquee-vertical space-y-6">
-                  {testimonials
-                    .filter((_, i) => i % 4 === colIndex)
-                    .map((testimonial) => (
-                      <motion.div
-                        key={testimonial.id}
-                        initial={{ rotateX: -90, opacity: 0 }}
-                        whileInView={{ rotateX: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <div
-                          className="bg-green-50 border border-darkGreen/40 rounded-md p-1 hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-                          onClick={() =>
-                            (window.location.href = testimonial.href)
-                          }
-                        >
-                          <div className="flex bg-textGreen/40 rounded-md p-2 items-start space-x-3 mb-4 overflow-hidden">
-                            <Image
-                              src={testimonial.avatar}
-                              alt={testimonial.name}
-                              className="w-10 h-10 rounded-full object-cover"
-                              width={40}
-                              height={40}
-                              loading="lazy"
-                            />
-                            <div className="min-w-0 flex-1">
-                              <h4 className="flex flex-row gap-1 font-semibold text-gray-900 text-sm">
-                                {testimonial.name}{" "}
-                                {testimonial.logo_worker ? (
-                                  <Image
-                                    src={testimonial.logo_worker}
-                                    alt="logo_worker"
-                                    className="w-4 h-4"
-                                    width={16}
-                                    height={16}
-                                    loading="lazy"
-                                  />
-                                ) : null}
-                              </h4>
-                              <p className="text-gray-500 text-sm">
-                                {testimonial.handle}
-                              </p>
-                            </div>
-                            <div className="text-green-600 text-xl">
-                              <Image
-                                src="/bg-section-1/x.png"
-                                alt="logo X"
-                                className="w-auto"
-                                width={32}
-                                height={32}
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div className="overflow-hidden px-3">
-                            <p className="text-gray-700 text-sm leading-relaxed">
-                              {testimonial.text}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                </div>
-              </div>
+                testimonials={getColumnTestimonials(colIndex)}
+                speed={columnSettings[colIndex].speed}
+                direction={columnSettings[colIndex].direction}
+              />
             ))}
           </div>
-          <div className="absolute bottom-0 left-0 w-full h-[700px] bg-gradient-to-t from-green-50/100 to-transparent pointer-events-none z-10"></div>
+          
+          {/* Gradient overlays for fade effect */}
+          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-green-50 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-green-50 to-transparent pointer-events-none z-10"></div>
         </div>
 
         {/* Read More Button */}
