@@ -138,7 +138,7 @@ export default function Header() {
               <div key={item.id} className="relative group h-full">
                 <button className="text-[#626566] hover:text-primary hover:font-bold font-semibold tracking-[-0.005em] text-base px-4 py-2.5 h-full flex items-center font-geist transition-all">
                   {item.id}
-                  <ChevronUp className="ml-2 w-4 h-4 transition-transform group-hover:rotate-180 duration-200" />
+                  <ChevronUp className="invisible ml-2 w-4 h-4 transition-transform group-hover:visible group-hover:rotate-180 duration-200" />
                 </button>
                 <div className="absolute left-0 top-full mt-2 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible scale-90 translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden">
                   <div className="p-2">
@@ -158,7 +158,7 @@ export default function Header() {
                 </div>
                 <div
                   className={cn(
-                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
+                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 -ml-2.5 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
                   )}
                 ></div>
               </div>
