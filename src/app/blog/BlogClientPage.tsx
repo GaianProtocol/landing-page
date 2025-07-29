@@ -53,7 +53,7 @@ const BlogClientPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* New Blog Title */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
+        <h1 className="text-darkGreen text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
           Blog
         </h1>
         <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
@@ -81,7 +81,7 @@ const BlogClientPage: React.FC = () => {
                       "rounded-full px-4 py-2 text-md font-medium transition-colors duration-200",
                       selectedCategory === category ||
                         (selectedCategory === null && category === "All")
-                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        ? "bg-darkGreen/90 text-white hover:bg-darkGreen"
                         : "bg-gray/10 text-gray-700 hover:bg-gray-100 border border-gray-300"
                     )}
                   >
@@ -97,7 +97,7 @@ const BlogClientPage: React.FC = () => {
             <div className="mb-8 mt-16">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-3xl font-extrabold text-gray-900">
+                  <h2 className="text-darkGreen text-3xl font-extrabold text-gray-900">
                     Our Recent Articles
                   </h2>
                   <p className="text-gray-600 mt-1">

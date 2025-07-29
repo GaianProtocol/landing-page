@@ -54,7 +54,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
           </span>
           <span className="text-gray-500 text-sm">{post.readTime}</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
           {post.title}
         </h2>
         <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 line-clamp-3">
