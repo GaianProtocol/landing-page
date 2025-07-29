@@ -170,7 +170,7 @@ const StablecoinPaymentSection = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             {/* {t("featureSection.tag")} */}
-            FEATHER
+            FEATURE
           </motion.h1>
 
           <motion.div
