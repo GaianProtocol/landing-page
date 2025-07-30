@@ -43,7 +43,7 @@ const TAB = [
       { id: "whyGaian", name: "Why Gaian", href: "/about" },
       {
         id: "brandkit",
-        name: "Brandkit",
+        name: "Brand Kit",
         href: "https://www.figma.com/design/1QAkCQg2VJBfbqjoD40piO/Gaian-Brand-Kit?node-id=0-1&t=0R9KlhPYK71lZadO-1",
       },
     ],

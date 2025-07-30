@@ -115,7 +115,7 @@ const StablecoinPaymentSection = () => {
     },
     {
       title: "On-ramp by Passkey",
-      description: "Invisible onboard web 2 users",
+      description: "Invisibly onboard Web2 users",
       icon: Key,
       buttonText: "BOOK DEMO",
       onButtonClick: () => (window.location.href = "/request-for-business"),
