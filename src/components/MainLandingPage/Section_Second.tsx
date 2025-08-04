@@ -3,6 +3,7 @@ import ContactPopup from "@/components/Popup/ContactPopup";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code, Key, Link, QrCode } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 // Card Component
 type CardProps = {
@@ -86,13 +87,14 @@ const Card = ({
 
 const StablecoinPaymentSection = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const { t } = useTranslation();
 
   const cardsData = [
     {
-      title: "Open Source SDK",
-      description: "Fork our repo and build your own app",
+      title: t("featureSection.items.sdk.title"),
+      description: t("featureSection.items.sdk.desc"),
       icon: Code,
-      buttonText: "LEARN ABOUT SDK",
+      buttonText: t("featureSection.items.sdk.cta"),
       featured: true,
       hasExternalLink: true,
       iconColor: "#9FE870",
@@ -100,24 +102,24 @@ const StablecoinPaymentSection = () => {
       onExternalClick: () => console.log("External link clicked"),
     },
     {
-      title: "API Gateway",
-      description: "Connect API Gaian to your existing platform",
+      title: t("featureSection.items.api.title"),
+      description: t("featureSection.items.api.desc"),
       icon: Link,
-      buttonText: "CONTACT FOR BUSINESS",
+      buttonText: t("featureSection.items.api.cta"),
       onButtonClick: () => (window.location.href = "/request-for-business"),
     },
     {
-      title: "QR Integration",
-      description: "Scan & pay with stablecoins in seconds",
+      title: t("featureSection.items.qr.title"),
+      description: t("featureSection.items.qr.desc"),
       icon: QrCode,
-      buttonText: "CONTACT FOR BUSINESS",
+      buttonText: t("featureSection.items.qr.cta"),
       onButtonClick: () => (window.location.href = "/request-for-business"),
     },
     {
-      title: "On-ramp by Passkey",
-      description: "Invisibly onboard Web2 users",
+      title: t("featureSection.items.passkey.title"),
+      description: t("featureSection.items.passkey.desc"),
       icon: Key,
-      buttonText: "BOOK DEMO",
+      buttonText: t("featureSection.items.passkey.cta"),
       onButtonClick: () => (window.location.href = "/request-for-business"),
     },
   ];
@@ -180,8 +182,7 @@ const StablecoinPaymentSection = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight lg:w-1/2 w-full">
-              {/* {t("featureSection.title")} */}A complete stablecoin payment
-              stack for building, integrating, and scaling globally.
+              {t("featureSection.title")}
             </h1>
           </motion.div>
           <motion.div
@@ -191,8 +192,7 @@ const StablecoinPaymentSection = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-xl md:text-2xl text-textGreen font-medium">
-              {/* {t("featureSection.subtitle")} */}
-              Fast, low-cost, and scalable
+              {t("featureSection.subtitle")}
             </p>
           </motion.div>
         </div>

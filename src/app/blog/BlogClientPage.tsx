@@ -9,9 +9,11 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/utils/cn"; // Keep cn utility
 import { FeaturedBlogCard } from "@/components/Blog/FeaturedBlogCard";
 import { BlogCard } from "@/components/Blog/BlogCard";
+import { useTranslation } from "react-i18next";
 
 // Main Component
 const BlogClientPage: React.FC = () => {
+  const { t } = useTranslation();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null); // State for selected category
@@ -31,22 +33,22 @@ const BlogClientPage: React.FC = () => {
   const uniqueCategories = useMemo(() => {
     const categories = new Set<string>();
     posts.forEach((post) => categories.add(post.category));
-    return ["All", ...Array.from(categories)].sort(); // Add "All" option and sort alphabetically
-  }, [posts]);
+    return [t("blogPage.categories.all"), ...Array.from(categories)].sort(); // Add "All" option and sort alphabetically
+  }, [posts, t]);
 
   // Filter posts based on selected category
   const filteredPosts = useMemo(() => {
-    if (!selectedCategory || selectedCategory === "All") {
+    if (!selectedCategory || selectedCategory === t("blogPage.categories.all")) {
       return posts;
     }
     return posts.filter((post) => post.category === selectedCategory);
-  }, [posts, selectedCategory]);
+  }, [posts, selectedCategory, t]);
 
   const featuredPost = filteredPosts.length > 0 ? filteredPosts[0] : null;
   const recentPosts = filteredPosts.length > 1 ? filteredPosts.slice(1, 4) : [];
 
   const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === "All" ? null : category);
+    setSelectedCategory(category === t("blogPage.categories.all") ? null : category);
   };
 
   return (
@@ -54,16 +56,14 @@ const BlogClientPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* New Blog Title */}
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 text-center">
-          Blog
+          {t("blogPage.title")}
         </h1>
         <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          The Gaian Blog shares insights, product updates, and technical deep
-          dives on digital payment infrastructure — built for developers,
-          startups, and businesses shaping the future of finance.
+          {t("blogPage.subtitle")}
         </p>
         {loading ? (
           <div className="text-center py-20 text-gray-500 text-lg">
-            Loading articles...
+            {t("blogPage.loading")}
           </div>
         ) : (
           <>
@@ -80,7 +80,7 @@ const BlogClientPage: React.FC = () => {
                     className={cn(
                       "rounded-full px-4 py-2 text-md font-medium transition-colors duration-200",
                       selectedCategory === category ||
-                        (selectedCategory === null && category === "All")
+                        (selectedCategory === null && category === t("blogPage.categories.all"))
                         ? "bg-blue-600 text-white hover:bg-blue-700"
                         : "bg-gray/10 text-gray-700 hover:bg-gray-100 border border-gray-300"
                     )}
@@ -98,10 +98,10 @@ const BlogClientPage: React.FC = () => {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="text-3xl font-extrabold text-gray-900">
-                    Our Recent Articles
+                    {t("blogPage.recentArticles.title")}
                   </h2>
                   <p className="text-gray-600 mt-1">
-                    Stay Informed with Our Latest Insights
+                    {t("blogPage.recentArticles.subtitle")}
                   </p>
                 </div>
                 <div className="flex gap-2">
@@ -122,7 +122,7 @@ const BlogClientPage: React.FC = () => {
                 ) : (
                   <div className="text-center py-12 col-span-full">
                     <p className="text-gray-500 text-lg">
-                      No recent articles found for this category.
+                      {t("blogPage.noArticles")}
                     </p>
                   </div>
                 )}

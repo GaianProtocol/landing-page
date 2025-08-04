@@ -14,6 +14,7 @@ import LabelTag from "@/components/Text/TextTitleSection";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { useTranslation } from "react-i18next";
 
 // Types
 interface Testimonial {
@@ -338,6 +339,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const Section_Third = () => {
+  const { t } = useTranslation();
+  
   const sponsors = [
     { name: "superteam", logo: superteam },
     { name: "CIRCLE", logo: circle },
@@ -372,8 +375,7 @@ const Section_Third = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* <LabelTag title={t("trustedSection.tag")} /> */}
-            <LabelTag title={"TRUSTED BY"} />
+            <LabelTag title={t("trustedSection.tag")} />
           </motion.div>
 
           <motion.div
@@ -384,12 +386,10 @@ const Section_Third = () => {
           >
             <h1 className=" flex flex-col md:flex-row gap-4 font-bold text-4xl md:text-6xl text-gray-900 mb-8">
               <span className="text-darkGreen">
-                {/* {t("trustedSection.headline.strong")}{" "} */}
-                Experienced
+                {t("trustedSection.headline.strong")}{" "}
               </span>
               <span className="text-gray/20">
-                {/* {t("trustedSection.headline.rest")} */}
-                In The Field From
+                {t("trustedSection.headline.rest")}
               </span>
             </h1>
           </motion.div>
@@ -441,8 +441,7 @@ const Section_Third = () => {
             className="px-4 py-3"
             onClick={() => window.open("https://x.com/Gaian_hq/highlights")}
           >
-            {/* {t("trustedSection.button")} */}
-            READ MORE
+            {t("trustedSection.button")}
           </ButtonPrimary>
         </div>
       </div>

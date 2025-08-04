@@ -3,6 +3,7 @@ import "./globals.css";
 import LayoutContainer from "@/layouts/LayoutContainer";
 import ContentLayout from "@/layouts/ContentLayout";
 import PageLayout from "@/layouts/PageLayout";
+import ClientWrapper from "@/layouts/ClientWrapper";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import "../lib/i18n";
@@ -89,13 +90,15 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <PageLayout>
-          <LayoutContainer>
-            <Header />
-            <ContentLayout>{children}</ContentLayout>
-            <Footer />
-          </LayoutContainer>
-        </PageLayout>
+        <ClientWrapper>
+          <PageLayout>
+            <LayoutContainer>
+              <Header />
+              <ContentLayout>{children}</ContentLayout>
+              <Footer />
+            </LayoutContainer>
+          </PageLayout>
+        </ClientWrapper>
       </body>
     </html>
   );

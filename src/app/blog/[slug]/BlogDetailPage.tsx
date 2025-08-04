@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Post } from "@/types/Posts.type";
 import { ArrowLeft, User, Calendar, Clock } from "lucide-react"; // Import User, Calendar, Clock icons
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 interface BlogPageDetailProps {
   post: Post;
@@ -11,6 +12,7 @@ interface BlogPageDetailProps {
 
 export default function BlogPageDetail({ post }: BlogPageDetailProps) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const handleBack = () => {
     if (typeof window !== "undefined" && window.history.length > 2) {
@@ -31,7 +33,7 @@ export default function BlogPageDetail({ post }: BlogPageDetailProps) {
             className="flex items-center justify-start gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
           >
             <ArrowLeft className="h-5 w-5" />
-            <span>Back</span>
+            <span>{t("blogDetail.back")}</span>
           </button>
           <span className="bg-gray/10 text-darkGreen px-4 py-2 rounded-full text-md font-semibold">
             {post.category}

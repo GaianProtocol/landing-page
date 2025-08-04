@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-04T06:43:50.226Z",
+  "englishKeys": 136,
+  "languages": [
+    {
+      "language": "phili",
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Unusually long translations: faqSection.items.001.answer (3.0x longer than English), faqSection.items.002.answer (2.8x longer than English), faqSection.items.003.answer (2.6x longer than English)"
+      ],
+      "stats": {
+        "totalKeys": 136,
+        "translatedKeys": 136,
+        "missingKeys": 0,
+        "extraKeys": 0,
+        "invalidTranslations": 0
+      }
+    }
+  ],
+  "overallValid": true
+}

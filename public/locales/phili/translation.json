@@ -31,7 +31,15 @@
   "common": {
     "english": "Ingles",
     "scanToPay": "SCAN PARA MAGBAYAD",
-    "getStarted": "Magsimula"
+    "getStarted": "Magsimula",
+    "selectLanguage": "Pumili ng Wika",
+    "language": "Wika",
+    "loading": "Naglo-load...",
+    "error": "Error",
+    "success": "Tagumpay",
+    "close": "Isara",
+    "submit": "Ipasa",
+    "cancel": "Kanselahin"
   },
   "heroSection": {
     "title": {
@@ -107,25 +115,106 @@
       }
     }
   },
+  "aboutPage": {
+    "title": "Tungkol sa Gaian: Bukas na Imprastruktura para sa Mundo na Umaagos",
+    "subtitle": "Hindi dapat limitahan ng inyong kapaligiran ang inyong potensyal. Ginagawa ng Gaian ang imprastruktura kung saan ang wellness at produktibidad ay nagsasama — binibigyang-daan ang mga developer na lumikha ng walang hangganan na payment experience, at ang mga user na malayang gumalaw nang may tiwala at kalinawan. Binabago namin ang paraan ng mundo — bukas, pakikipagtulungan, at may layunin.",
+    "mission": {
+      "title": "Aming Misyon",
+      "description": "Sa Gaian, ginagawa namin ang mga bukas at matalinong kasangkapan na tumutulong sa mga tao at negosyo na mas magtrabaho ng mabuti, mabuhay ng mas mabuti, at mas maging daloy. Mula sa mga embedded payment hanggang sa developer-first na imprastruktura, ang aming misyon ay buksan ang walang sagabal na produktibidad — saan man, para sa lahat."
+    },
+    "value": {
+      "title": "Aming Halaga",
+      "description": "Naniniwala kami na ang wellness at produktibidad ay hindi hiwalay — konektado sila. Binibigyang-lakas ng Gaian ang mga modernong organisasyon gamit ang AI-enhanced, human-centered na mga solusyon na dinisenyo upang mabawasan ang pagkakabanggaan, magdulot ng inobasyon, at lumaki nang may layunin."
+    }
+  },
   "footer": {
-    "sections": {
-      "product": {
-        "title": "Produkto",
-        "items": {
-          "paymentDapp": "Payment dApp",
-          "qrScanner": "Scan Para Magbayad",
-          "qrPaymentSDK": "QR Payment API/SDK",
-          "onRampByPasskey": "On-Ramp Gamit ang Passkey"
-        }
+    "product": {
+      "title": "Produkto",
+      "paymentDApp": "Payment DApp",
+      "qrScanner": "QR Scanner",
+      "qrPaymentSDK": "QR Payment SDK",
+      "onRampByPasskey": "On Ramp Gamit ang Passkey"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacyPolicy": "Patakaran sa Privacy",
+      "termsOfService": "Mga Tuntunin ng Serbisyo",
+      "refundAndCancellation": "Pagkansela at Pag-refund"
+    },
+    "copyright": "© 2025 Gaian. Lahat ng karapatan ay nakalaan."
+  },
+  "contactPopup": {
+    "title": "Sumali sa Proyekto",
+    "subtitle": "Makipag-ugnayan sa amin upang maidagdag sa proyekto",
+    "contactPerson": "Makipag-ugnayan kay Fay Nguyen",
+    "description": "Upang maidagdag sa GitHub project at makatanggap ng mga update sa email, mangyaring makipag-ugnayan sa pamamagitan ng isa sa mga pamamaraan sa ibaba:",
+    "telegram": {
+      "title": "Telegram",
+      "handle": "@Faynguyen071"
+    },
+    "email": {
+      "title": "Email",
+      "address": "info@gaian.network"
+    },
+    "note": {
+      "title": "Tala",
+      "description": "Mangyaring isama ang inyong layunin sa pagsali sa proyekto kapag nakikipag-ugnayan."
+    }
+  },
+  "blogPage": {
+    "title": "Blog",
+    "subtitle": "Ang Gaian Blog ay nagbabahagi ng mga insight, product update, at technical deep dive sa digital payment infrastructure — ginawa para sa mga developer, startup, at negosyo na bumubuo sa hinaharap ng finance.",
+    "loading": "Naglo-load ng mga artikulo...",
+    "categories": {
+      "all": "Lahat"
+    },
+    "recentArticles": {
+      "title": "Aming Mga Kamakailang Artikulo",
+      "subtitle": "Manatiling May Kaalaman sa Aming Mga Pinakabagong Insight"
+    },
+    "noArticles": "Walang nahanap na kamakailang artikulo para sa kategoryang ito.",
+    "readMore": "Basahin Pa"
+  },
+  "blogDetail": {
+    "back": "Bumalik"
+  },
+  "requestBusiness": {
+    "success": {
+      "title": "🎉 Salamat sa pakikipag-ugnayan!",
+      "message": "Makakakuha kayo ng sagot sa loob ng 48 oras.",
+      "backToHome": "← Bumalik sa homepage"
+    },
+    "navigation": {
+      "home": "Home",
+      "breadcrumb": "Kahilingan para sa Negosyo",
+      "backToHome": "Bumalik sa home"
+    },
+    "form": {
+      "title": "Kahilingan para sa Negosyo",
+      "subtitle": "Sabihin sa amin ang tungkol sa inyong proyekto at mag-apply para ma-access ang infrastructure stack ng Gaian.",
+      "fields": {
+        "fullName": "Buong Pangalan",
+        "workEmail": "Work Email",
+        "companyName": "Pangalan ng Kumpanya",
+        "role": "Inyong Tungkulin",
+        "website": "Website",
+        "country": "Bansa",
+        "industry": "Industriya",
+        "volumeEstimate": "Estimate ng Transaction Volume",
+        "timeline": "Timeline ng Proyekto",
+        "referralSource": "Paano ninyo nalaman ang tungkol sa amin?",
+        "interestedIn": "Interesado Sa",
+        "useCase": "Ilarawan ang Inyong Use Case"
       },
-      "legal": {
-        "title": "Legal",
-        "items": {
-          "privacy": "Patakaran sa Privacy",
-          "terms": "Mga Tuntunin ng Serbisyo",
-          "refund": "Pagkansela at Pag-refund"
-        }
-      }
+      "options": {
+        "roles": ["Founder", "CTO", "Engineer", "PM", "Iba pa"],
+        "industries": ["Fintech", "Ecommerce", "Web3", "Edukasyon", "Iba pa"],
+        "volumes": ["< $10k/mo", "$10k–$100k/mo", "$100k+/mo"],
+        "timelines": ["0–3 buwan", "3–6 buwan", "6+ buwan"],
+        "products": ["SDK", "API Gateway", "QR Integration", "On-Ramp"]
+      },
+      "submit": "Isumite ang Kahilingan",
+      "submitting": "Nag-susubmit..."
     }
   }
 }
