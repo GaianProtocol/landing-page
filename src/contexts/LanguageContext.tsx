@@ -18,7 +18,7 @@ interface LanguageOption {
 
 const availableLanguages: LanguageOption[] = [
   { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "phili", name: "Philippines", flag: "🇵🇭" },
+  { code: "phili", name: "Filipino", flag: "🇵🇭" },
 ];
 
 interface LanguageContextProps {

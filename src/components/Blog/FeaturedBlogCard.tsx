@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Post } from "@/types/Posts.type";
+import { useTranslation } from "react-i18next";
 
 interface FeaturedBlogCardProps {
   post: Post;
 }
 
 export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
+  const { t } = useTranslation();
   return (
     <div
       className="bg-white rounded-2xl shadow-xl border border-green-100 overflow-hidden flex flex-col lg:flex-row mb-12 cursor-pointer"
@@ -64,7 +66,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
           href={`/blog/${post.slug}`}
           className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
         >
-          Read More <ArrowRight className="w-5 h-5 ml-2" />
+          {t("blogPage.readMore")} <ArrowRight className="w-5 h-5 ml-2" />
         </Link>
       </div>
     </div>

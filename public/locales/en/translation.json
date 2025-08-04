@@ -31,7 +31,15 @@
   "common": {
     "english": "English",
     "scanToPay": "SCAN TO PAY",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "selectLanguage": "Select Language",
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "submit": "Submit",
+    "cancel": "Cancel"
   },
   "heroSection": {
     "title": {
@@ -106,25 +114,106 @@
       }
     }
   },
+  "aboutPage": {
+    "title": "About Gaian: Open Infra for a World in Flow",
+    "subtitle": "Your environment shouldn't limit your potential. Gaian builds the infrastructure where wellness and productivity coexist — enabling developers to create borderless payment experiences, and users to move freely with trust and clarity. We're redefining how the world works — openly, collaboratively, and with purpose.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "At Gaian, we build open, intelligent tools that help people and businesses work better, live better, and flow better. From embedded payments to developer-first infrastructure, our mission is to unlock seamless productivity — anywhere, for anyone."
+    },
+    "value": {
+      "title": "Our Value",
+      "description": "We believe wellness and productivity aren't separate — they're connected. Gaian empowers modern organizations with AI-enhanced, human-centered solutions designed to reduce friction, spark innovation, and scale with purpose."
+    }
+  },
   "footer": {
-    "sections": {
-      "product": {
-        "title": "Product",
-        "items": {
-          "paymentDapp": "Payment dApp",
-          "qrScanner": "Scan To Pay",
-          "qrPaymentSDK": "QR Payment API/SDK",
-          "onRampByPasskey": "On Ramp By Passkey"
-        }
+    "product": {
+      "title": "Product",
+      "paymentDApp": "Payment DApp",
+      "qrScanner": "QR Scanner",
+      "qrPaymentSDK": "QR Payment SDK",
+      "onRampByPasskey": "On Ramp By Passkey"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "refundAndCancellation": "Refund and Cancellation"
+    },
+    "copyright": "© 2025 Gaian. All rights reserved."
+  },
+  "contactPopup": {
+    "title": "Join the Project",
+    "subtitle": "Contact us to be added to the project",
+    "contactPerson": "Contact Fay Nguyen",
+    "description": "To be added to the GitHub project and receive updates via email, please reach out through one of the methods below:",
+    "telegram": {
+      "title": "Telegram",
+      "handle": "@Faynguyen071"
+    },
+    "email": {
+      "title": "Email",
+      "address": "info@gaian.network"
+    },
+    "note": {
+      "title": "Note",
+      "description": "Please include your purpose for joining the project when reaching out."
+    }
+  },
+  "blogPage": {
+    "title": "Blog",
+    "subtitle": "The Gaian Blog shares insights, product updates, and technical deep dives on digital payment infrastructure — built for developers, startups, and businesses shaping the future of finance.",
+    "loading": "Loading articles...",
+    "categories": {
+      "all": "All"
+    },
+    "recentArticles": {
+      "title": "Our Recent Articles",
+      "subtitle": "Stay Informed with Our Latest Insights"
+    },
+    "noArticles": "No recent articles found for this category.",
+    "readMore": "Read More"
+  },
+  "blogDetail": {
+    "back": "Back"
+  },
+  "requestBusiness": {
+    "success": {
+      "title": "🎉 Thanks for reaching out!",
+      "message": "We'll get back to you within 48 hours.",
+      "backToHome": "← Back to homepage"
+    },
+    "navigation": {
+      "home": "Home",
+      "breadcrumb": "Request for Business",
+      "backToHome": "Back to home"
+    },
+    "form": {
+      "title": "Request for Business",
+      "subtitle": "Tell us about your project and apply to access Gaian's infrastructure stack.",
+      "fields": {
+        "fullName": "Full Name",
+        "workEmail": "Work Email",
+        "companyName": "Company Name",
+        "role": "Your Role",
+        "website": "Website",
+        "country": "Country",
+        "industry": "Industry",
+        "volumeEstimate": "Transaction Volume Estimate",
+        "timeline": "Project Timeline",
+        "referralSource": "How did you hear about us?",
+        "interestedIn": "Interested In",
+        "useCase": "Describe Your Use Case"
       },
-      "legal": {
-        "title": "Legal",
-        "items": {
-          "privacy": "Privacy Policy",
-          "terms": "Terms of Service",
-          "refund": "Refund and Cancellation"
-        }
-      }
+      "options": {
+        "roles": ["Founder", "CTO", "Engineer", "PM", "Other"],
+        "industries": ["Fintech", "Ecommerce", "Web3", "Education", "Other"],
+        "volumes": ["< $10k/mo", "$10k–$100k/mo", "$100k+/mo"],
+        "timelines": ["0–3 months", "3–6 months", "6+ months"],
+        "products": ["SDK", "API Gateway", "QR Integration", "On-Ramp"]
+      },
+      "submit": "Submit Request",
+      "submitting": "Submitting..."
     }
   }
 }
