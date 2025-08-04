@@ -82,7 +82,7 @@ const BlogClientPage: React.FC = () => {
                       selectedCategory === category ||
                         (selectedCategory === null && category === t("blogPage.categories.all"))
                         ? "bg-blue-600 text-white hover:bg-blue-700"
-                        : "bg-gray/10 text-gray-700 hover:bg-gray-100 border border-gray-300"
+
                     )}
                   >
                     {category}
@@ -99,6 +99,7 @@ const BlogClientPage: React.FC = () => {
                 <div>
                   <h2 className="text-3xl font-extrabold text-gray-900">
                     {t("blogPage.recentArticles.title")}
+
                   </h2>
                   <p className="text-gray-600 mt-1">
                     {t("blogPage.recentArticles.subtitle")}

@@ -39,7 +39,9 @@ export default function BlogPageDetail({ post }: BlogPageDetailProps) {
             {post.category}
           </span>
         </div>
-        <h1 className="mb-2">{post.title}</h1>
+        <h1 className="mb-2 text-3xl md:text-5xl font-semibold">
+          {post.title}
+        </h1>
 
         <p className="text-gray-500 mb-4 flex items-center flex-wrap gap-x-4 gap-y-2">
           <span className="flex items-center">
@@ -67,7 +69,10 @@ export default function BlogPageDetail({ post }: BlogPageDetailProps) {
           />
         )}
 
-        <div className="text-gray/50" dangerouslySetInnerHTML={{ __html: post.html || "" }} />
+        <div
+          className="text-gray/50"
+          dangerouslySetInnerHTML={{ __html: post.html || "" }}
+        />
       </div>
     </section>
   );
