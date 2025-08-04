@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LogoSVG } from "@/assets/svgs";
 import { cn } from "@/utils/cn";
+import { LanguageSelector } from "../Lang";
+import { useTranslation } from "react-i18next";
 
 type TabItem = {
   id: string;
@@ -18,57 +20,75 @@ type TabItem = {
   href?: string;
 };
 
-const TAB = [
-  {
-    id: "Product",
-    name: "Product",
-    submenu: [
-      {
-        id: "paymentDapp",
-        name: "Payment Dapp",
-        href: "https://app.gaian.network/",
-      },
-      {
-        id: "qrScanner",
-        name: "QR Scanner",
-        href: "https://app.gaian.network/scan-qr",
-      },
-    ],
-  },
-  { id: "Developers", name: "Developers", isPopup: true },
-  {
-    id: "About",
-    name: "About",
-    submenu: [
-      { id: "whyGaian", name: "Why Gaian", href: "/about" },
-      {
-        id: "brandkit",
-        name: "Brandkit",
-        href: "https://www.figma.com/design/1QAkCQg2VJBfbqjoD40piO/Gaian-Brand-Kit?node-id=0-1&t=0R9KlhPYK71lZadO-1",
-      },
-    ],
-  },
-  { id: "Blog", name: "Blog", href: "/blog" },
-  {
-    id: "Support",
-    name: "Support",
-    submenu: [
-      {
-        id: "telegram",
-        name: "Telegram",
-        href: "https://t.me/+nhhc0rADb-tiNmU1",
-      },
-      { id: "email", name: "Email", href: "mailto:tech@gaian.network" },
-    ],
-  },
-];
-
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null);
   const mobileMenuRef = useRef(null);
   const [showContactPopup, setShowContactPopup] = useState(false);
   const router = useRouter();
+  const { t } = useTranslation();
+
+  // Dynamic TAB configuration using translations
+  const TAB = [
+    {
+      id: t('navigation.Product.label'),
+      name: t('navigation.Product.label'),
+      submenu: [
+        {
+          id: "paymentDapp",
+          name: t('navigation.Product.submenu.paymentDapp'),
+          href: "https://app.gaian.network/",
+        },
+        {
+          id: "qrScanner",
+          name: t('navigation.Product.submenu.qrScanner'),
+          href: "https://app.gaian.network/scan-qr",
+        },
+      ],
+    },
+    { 
+      id: t('navigation.Developers.label'), 
+      name: t('navigation.Developers.label'), 
+      isPopup: true 
+    },
+    {
+      id: t('navigation.About.label'),
+      name: t('navigation.About.label'),
+      submenu: [
+        { 
+          id: "whyGaian", 
+          name: t('navigation.About.submenu.whyGaian'), 
+          href: "/about" 
+        },
+        {
+          id: "brandkit",
+          name: t('navigation.About.submenu.brandkit'),
+          href: "https://www.figma.com/design/1QAkCQg2VJBfbqjoD40piO/Gaian-Brand-Kit?node-id=0-1&t=0R9KlhPYK71lZadO-1",
+        },
+      ],
+    },
+    { 
+      id: t('navigation.Blog.label'), 
+      name: t('navigation.Blog.label'), 
+      href: "/blog" 
+    },
+    {
+      id: t('navigation.Support.label'),
+      name: t('navigation.Support.label'),
+      submenu: [
+        {
+          id: "telegram",
+          name: t('navigation.Support.submenu.telegram'),
+          href: "https://t.me/+nhhc0rADb-tiNmU1",
+        },
+        { 
+          id: "email", 
+          name: t('navigation.Support.submenu.email'), 
+          href: "mailto:tech@gaian.network" 
+        },
+      ],
+    },
+  ];
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -138,7 +158,7 @@ export default function Header() {
               <div key={item.id} className="relative group h-full">
                 <button className="text-[#626566] hover:text-primary hover:font-bold font-semibold tracking-[-0.005em] text-base px-4 py-2.5 h-full flex items-center font-geist transition-all">
                   {item.id}
-                  <ChevronUp className="ml-2 w-4 h-4 transition-transform group-hover:rotate-180 duration-200" />
+                  <ChevronUp className="invisible ml-2 w-4 h-4 transition-transform group-hover:visible group-hover:rotate-180 duration-200" />
                 </button>
                 <div className="absolute left-0 top-full mt-2 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible scale-90 translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden">
                   <div className="p-2">
@@ -158,7 +178,7 @@ export default function Header() {
                 </div>
                 <div
                   className={cn(
-                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
+                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 -ml-2.5 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
                   )}
                 ></div>
               </div>
@@ -193,6 +213,9 @@ export default function Header() {
 
         {/* Right section: Desktop Button & Mobile Menu Button */}
         <div className="relative flex justify-end items-center gap-4">
+          {/* Language Selector - Desktop */}
+          <LanguageSelector />
+          
           <a
             href="https://app.gaian.network/"
             target="_blank"
@@ -201,7 +224,7 @@ export default function Header() {
           >
             <ButtonPrimary className="px-4 py-2">
               <span className="text-black uppercase font-geist text-xl font-semibold">
-                Scan To Pay
+                {t('common.scanToPay')}
               </span>
             </ButtonPrimary>
           </a>
@@ -289,6 +312,11 @@ export default function Header() {
               </div>
             ))}
           </nav>
+          
+          {/* Mobile Language Selector */}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <LanguageSelector variant="mobile" />
+          </div>
         </div>
       </div>
 

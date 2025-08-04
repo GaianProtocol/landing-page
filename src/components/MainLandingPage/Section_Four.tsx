@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { useTranslation } from "react-i18next";
 
 // Định nghĩa kiểu cho winner item
 interface WinnerItem {
@@ -137,6 +138,8 @@ const WinnerCard = ({
 };
 
 const SectionFour = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="bg-gray-100 py-16 bg-green-50 overflow-x-hidden">
       {/* Header */}
@@ -149,12 +152,10 @@ const SectionFour = () => {
       >
         <h1 className="flex flex-row gap-3 text-2xl md:text-5xl pl-5 md:pl-16 font-bold">
           <span className="text-darkGreen">
-            {/* {t("winnerSection.tag.winner")}{" "} */}
-            Winner
+            {t("winnerSection.tag.winner")}{" "}
           </span>
           <span className="text-gray/50">
-            {/* {t("winnerSection.tag.from")} ... */}
-            from...
+            {t("winnerSection.tag.from")}
           </span>
         </h1>
       </motion.div>

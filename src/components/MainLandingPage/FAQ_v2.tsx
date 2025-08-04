@@ -2,28 +2,25 @@
 import LabelTag from "@/components/Text/TextTitleSection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 const faqData = [
   {
     id: 1,
     number: "001",
-    questionKey: "What is Gaian?",
-    answerKey:
-      "Gaian is a stablecoin-based financial infrastructure that helps businesses reach unbanked users across emerging markets...",
+    questionKey: "faqSection.items.001.question",
+    answerKey: "faqSection.items.001.answer",
   },
   {
     id: 2,
     number: "002",
-    questionKey: "How long do projects typically take?",
-    answerKey:
-      "Project timelines vary depending on complexity and requirements. Typically, simple integrations take 2–4 weeks... ",
+    questionKey: "faqSection.items.002.question",
+    answerKey: "faqSection.items.002.answer",
   },
   {
     id: 3,
     number: "003",
-    questionKey:
-      "Do users or business need a crypto wallet to use app or infrastructure?",
-    answerKey:
-      "No, users don't need an existing crypto wallet. Our infrastructure provides embedded wallet solutions...",
+    questionKey: "faqSection.items.003.question",
+    answerKey: "faqSection.items.003.answer",
   },
 ];
 // const faqData = [
@@ -49,7 +46,7 @@ const faqData = [
 const FaqSection = () => {
   const [openItem, setOpenItem] = useState<number | null>(1);
 
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const toggleItem = (id: number) => {
     setOpenItem(openItem === id ? null : id);
@@ -68,8 +65,7 @@ const FaqSection = () => {
               transition={{ duration: 0.7 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              {/* <LabelTag title={t("faqSection.tag")} /> */}
-              <LabelTag title={"FAQ "} />
+              <LabelTag title={t("faqSection.tag")} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -79,14 +75,12 @@ const FaqSection = () => {
             >
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                 <span className="text-gray/40">
-                  {/* {t("faqSection.title.main")} */}
-                  Got Questions?
+                  {t("faqSection.title.main")}
                 </span>
                 <br />
                 <span className="text-darkGreen">
                   {" "}
-                  {/* {t("faqSection.title.highlight")} */}
-                  We&apos;ve Got Answers!
+                  {t("faqSection.title.highlight")}
                 </span>
               </h2>
             </motion.div>
@@ -129,8 +123,7 @@ const FaqSection = () => {
                         {item.number}
                       </div>
                       <h3 className="text-base md:text-lg font-semibold text-gray-800">
-                        {/* {t(item.questionKey)} */}
-                        {item.questionKey}
+                        {t(item.questionKey)}
                       </h3>
                     </div>
 
@@ -179,8 +172,7 @@ const FaqSection = () => {
                 >
                   <div className="px-6 pb-6 pt-4 bg-darkGreen rounded-xl">
                     <p className="text-sm font-light md:text-base leading-relaxed text-textGreen">
-                      {/* {t(item.answerKey)} */}
-                      {item.answerKey}
+                      {t(item.answerKey)}
                     </p>
                   </div>
                 </div>

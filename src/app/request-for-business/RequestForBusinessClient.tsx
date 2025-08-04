@@ -7,6 +7,7 @@ import { useState } from "react";
 import { cn } from "@/utils/cn";
 import { Input } from "@/components/Form/Input";
 import { Select } from "@/components/Form/Select";
+import { useTranslation } from "react-i18next";
 
 type FormData = {
   fullName: string;
@@ -26,6 +27,7 @@ type FormData = {
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function RequestForBusinessClient() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     workEmail: "",
@@ -99,16 +101,16 @@ export default function RequestForBusinessClient() {
         <div className="bg-white p-10 rounded-2xl shadow-2xl text-center max-w-md border border-green-100">
           <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4 animate-bounce-in" />
           <h2 className="text-3xl font-extrabold text-green-800">
-            🎉 Thanks for reaching out!
+             {t("requestBusiness.success.title")}
           </h2>
           <p className="mt-3 text-gray-600 text-lg">
-            We’ll get back to you within 48 hours.
+            {t("requestBusiness.success.message")}
           </p>
           <a
             href="/"
             className="mt-8 inline-block text-green-700 font-medium underline hover:text-green-900 transition-colors duration-200"
           >
-            ← Back to homepage
+            ← {t("requestBusiness.success.backToHome")}
           </a>
         </div>
       </div>
@@ -131,11 +133,11 @@ export default function RequestForBusinessClient() {
               onClick={() => window.history.back()}
             >
               <Home className="w-4 h-4 mr-1" />
-              <span className="hidden sm:inline">Home</span>
+              <span className="hidden sm:inline">{t("requestBusiness.navigation.home")}</span>
             </button>
             <ChevronRight className="w-4 h-4" />
             <span className="text-gray-900 font-medium">
-              Request for Business
+              {t("requestBusiness.navigation.breadcrumb")}
             </span>
           </nav>
           <button
@@ -143,23 +145,22 @@ export default function RequestForBusinessClient() {
             onClick={() => window.history.back()}
           >
             <ArrowLeft className="w-4 h-4 mr-1" />
-            <span className="hidden sm:inline">Back to home</span>
+            <span className="hidden sm:inline">{t("requestBusiness.navigation.backToHome")}</span>
           </button>
         </div>
 
         <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-green-100 p-8 sm:p-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-green-900 mb-3">
-            Request for Business
+             {t("requestBusiness.form.title")}
           </h1>
           <p className="text-gray-600 mb-8">
-            Tell us about your project and apply to access Gaian&apos;s
-            infrastructure stack.
+            {t("requestBusiness.form.subtitle")}
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Input
-                label="Full Name"
+                label={t("requestBusiness.form.fields.fullName")}
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -167,7 +168,7 @@ export default function RequestForBusinessClient() {
                 disabled={isSubmitting}
               />
               <Input
-                label="Work Email"
+                label={t("requestBusiness.form.fields.workEmail")}
                 name="workEmail"
                 type="email"
                 value={formData.workEmail}
@@ -176,7 +177,7 @@ export default function RequestForBusinessClient() {
                 disabled={isSubmitting}
               />
               <Input
-                label="Company Name"
+                label={t("requestBusiness.form.fields.companyName")}
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
@@ -184,23 +185,23 @@ export default function RequestForBusinessClient() {
                 disabled={isSubmitting}
               />
               <Select
-                label="Your Role"
+                label={t("requestBusiness.form.fields.role")}
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
                 required
-                options={["Founder", "CTO", "Engineer", "PM", "Other"]}
+                options={t("requestBusiness.form.options.roles", { returnObjects: true }) as string[]}
                 disabled={isSubmitting}
               />
               <Input
-                label="Website"
+                label={t("requestBusiness.form.fields.website")}
                 name="website"
                 value={formData.website}
                 onChange={handleChange}
                 disabled={isSubmitting}
               />
               <Input
-                label="Country"
+                label={t("requestBusiness.form.fields.country")}
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
@@ -208,32 +209,32 @@ export default function RequestForBusinessClient() {
                 disabled={isSubmitting}
               />
               <Select
-                label="Industry"
+                label={t("requestBusiness.form.fields.industry")}
                 name="industry"
                 value={formData.industry}
                 onChange={handleChange}
                 required
-                options={["Fintech", "Ecommerce", "Web3", "Education", "Other"]}
+                options={t("requestBusiness.form.options.industries", { returnObjects: true }) as string[]}
                 disabled={isSubmitting}
               />
               <Select
-                label="Transaction Volume Estimate"
+                label={t("requestBusiness.form.fields.volumeEstimate")}
                 name="volumeEstimate"
                 value={formData.volumeEstimate}
                 onChange={handleChange}
-                options={["< $10k/mo", "$10k–$100k/mo", "$100k+/mo"]}
+                options={t("requestBusiness.form.options.volumes", { returnObjects: true }) as string[]}
                 disabled={isSubmitting}
               />
               <Select
-                label="Project Timeline"
+                label={t("requestBusiness.form.fields.timeline")}
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleChange}
-                options={["0–3 months", "3–6 months", "6+ months"]}
+                options={t("requestBusiness.form.options.timelines", { returnObjects: true }) as string[]}
                 disabled={isSubmitting}
               />
               <Input
-                label="How did you hear about us?"
+                label={t("requestBusiness.form.fields.referralSource")}
                 name="referralSource"
                 value={formData.referralSource}
                 onChange={handleChange}
@@ -243,10 +244,10 @@ export default function RequestForBusinessClient() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Interested In
+                {t("requestBusiness.form.fields.interestedIn")}
               </label>
               <div className="flex flex-wrap gap-x-6 gap-y-3">
-                {["SDK", "API Gateway", "QR Integration", "On-Ramp"].map(
+                {(t("requestBusiness.form.options.products", { returnObjects: true }) as string[]).map(
                   (item) => (
                     <label
                       key={item}
@@ -270,7 +271,7 @@ export default function RequestForBusinessClient() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Describe Your Use Case
+                {t("requestBusiness.form.fields.useCase")}
               </label>
               <textarea
                 name="useCase"
@@ -317,10 +318,10 @@ export default function RequestForBusinessClient() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  Submitting...
+                  {t("requestBusiness.form.submitting")}
                 </span>
               ) : (
-                "Submit Request"
+                t("requestBusiness.form.submit")
               )}
             </button>
           </form>

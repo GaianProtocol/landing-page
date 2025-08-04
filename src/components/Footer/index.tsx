@@ -1,10 +1,13 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 // Assuming these are paths to SVG files, not React components, as used with next/image src prop
 import { LinkedIn, Telegram, X } from "@/assets/svgs"
 import LogoSVG from "@/assets/svgs/logo.svg"
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="relative w-full overflow-hidden bg-gradient-to-t from-textGreen to-slate-100 z-0">
       {/* Footer Decord (Background Image) */}
@@ -40,54 +43,54 @@ export default function Footer() {
                 {/* Product Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">Product</h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">{t("footer.product.title")}</h3>
                     <Link
                       href="https://app.gaian.network"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      Payment DApp
+                      {t("footer.product.paymentDApp")}
                     </Link>
                     <Link
                       href="https://app.gaian.network/scan-qr"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      QR Scanner
+                      {t("footer.product.qrScanner")}
                     </Link>
                     <Link
                       href="https://developer.gaian.network/"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      QR Payment SDK
+                      {t("footer.product.qrPaymentSDK")}
                     </Link>
                     <Link
                       href="/request-for-business"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      On Ramp By Passkey
+                      {t("footer.product.onRampByPasskey")}
                     </Link>
                   </div>
                 </div>
                 {/* Legal Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">Legal</h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">{t("footer.legal.title")}</h3>
                     <Link
                       href="https://developer.gaian.network/privacy-policy-1"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      Privacy Policy
+                      {t("footer.legal.privacyPolicy")}
                     </Link>
                     <Link
                       href="https://developer.gaian.network/privacy-policy/terms-of-service"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      Terms of Service
+                      {t("footer.legal.termsOfService")}
                     </Link>
                     <Link
                       href="https://developer.gaian.network/refund-and-cancellation"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
                     >
-                      Refund and Cancellation
+                      {t("footer.legal.refundAndCancellation")}
                     </Link>
                     {/* Social Media Icons - Mobile Only */}
                     <div className="block md:hidden gap-3 mt-4">
@@ -143,7 +146,7 @@ export default function Footer() {
             {/* Bottom: Links + Copyright */}
             <div className="flex flex-col md:flex-row items-center justify-between border-t border-darkGreen/50 pt-6 gap-6">
               <span className="text-sm text-primary font-light tracking-wide uppercase text-center md:text-left">
-                © 2025 Gaian. All rights reserved.
+                {t("footer.copyright")}
               </span>
               <div className="hidden md:block gap-3">
                 <div className="flex items-center gap-3">

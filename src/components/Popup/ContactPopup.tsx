@@ -2,6 +2,7 @@
 import { TelegramWhite } from "@/assets/svgs";
 import { ArrowRight, Mail, Users, X } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 interface ContactPopupProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ContactPopupProps {
 }
 
 const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
+  const { t } = useTranslation();
   const handleTeleClick = () => {
     window.open("https://t.me/Faynguyen071", "_blank");
   };
@@ -40,10 +42,10 @@ const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
                 </div>
                 <div>
                   <h2 className="text-xl sm:text-lg font-bold">
-                    Join the Project
+                    {t("contactPopup.title")}
                   </h2>
                   <p className="text-sm md:block hidden">
-                    Contact us to be added to the project
+                    {t("contactPopup.subtitle")}
                   </p>
                 </div>
               </div>
@@ -57,12 +59,11 @@ const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
                   <ArrowRight size={28} className="text-green-600" />
                 </div>
                 <h3 className="text-lg sm:text-base font-semibold text-gray-800">
-                  Contact Fay Nguyen
+                  {t("contactPopup.contactPerson")}
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed text-sm sm:text-xs">
-                  To be added to the GitHub project and receive updates via
-                  email, please reach out through one of the methods below:
+                  {t("contactPopup.description")}
                 </p>
               </div>
 
@@ -77,9 +78,9 @@ const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
                     <Image src={TelegramWhite} alt="tele" className="w-6" />
                   </div>
                   <div className="flex-1 text-left">
-                    <div className="font-semibold text-white">Telegram</div>
+                    <div className="font-semibold text-white">{t("contactPopup.telegram.title")}</div>
                     <div className="text-sm text-white underline">
-                      @Faynguyen071
+                      {t("contactPopup.telegram.handle")}
                     </div>
                   </div>
                   <ArrowRight size={20} color="#9FE870" />
@@ -94,9 +95,9 @@ const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
                     <Mail size={20} color="#9FE870" />
                   </div>
                   <div className="flex-1 text-left">
-                    <div className="font-semibold text-white">Email</div>
+                    <div className="font-semibold text-white">{t("contactPopup.email.title")}</div>
                     <div className="text-sm text-blue-400 underline">
-                      info@gaian.network
+                      {t("contactPopup.email.address")}
                     </div>
                   </div>
                   <ArrowRight size={20} color="#9FE870" />
@@ -105,8 +106,7 @@ const ContactPopup = ({ isOpen, setIsOpen }: ContactPopupProps) => {
 
               {/* Footer Note */}
               <div className="bg-gray-50 p-4 rounded-lg text-center text-sm text-gray-600">
-                💡 <strong>Note:</strong> Please include your purpose for
-                joining the project when reaching out.
+                💡 <strong>{t("contactPopup.note.title")}:</strong> {t("contactPopup.note.description")}
               </div>
             </div>
           </div>

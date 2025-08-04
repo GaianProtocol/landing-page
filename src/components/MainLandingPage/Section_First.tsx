@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type AnimatedWordProps = {
   word: string;
@@ -45,11 +46,16 @@ export const AnimatedWord = ({
   );
 };
 
-const changingWords = ["Business", "Everyone"];
-
 const Section_First = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
+
+  // Dynamic changing words using translations
+  const changingWords = [
+    t('heroSection.title.Business'),
+    t('heroSection.title.Everyone'),
+  ];
 
   // 2. Tách riêng logic show lần đầu
   useEffect(() => {
@@ -69,7 +75,7 @@ const Section_First = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []); // chỉ chạy một lần sau mount
+  }, [changingWords.length]);
 
   return (
     <section className="relative flex flex-col items-center md:items-start justify-center h-screen w-full bg-section-bg-2 bg-cover bg-center px-4 py-16 overflow-hidden">
@@ -78,14 +84,14 @@ const Section_First = () => {
         <h1 className="flex flex-row items-center justify-start gap-1 text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 md:mb-5 leading-tight">
           <span className="">
             <AnimatedWord
-              word={"The"}
+              word={t('heroSection.title.The')}
               baseDelay={0.2}
               className="text-gray/50"
             />
           </span>
           <span className="inline-block text-white px-4 py-2 rounded-lg">
             <AnimatedWord
-              word="Neobank"
+              word={t('heroSection.title.Neobank')}
               baseDelay={0.3}
               className="text-darkGreen"
             />
@@ -96,7 +102,7 @@ const Section_First = () => {
         <h2 className="flex flex-row md:flex-row md:gap-4 font-bold text-gray-800 mb-5 md:mb-10 w-full lig">
           <span className="mt-1 mr-3">
             <AnimatedWord
-              word={"For"}
+              word={t('heroSection.title.For')}
               baseDelay={0.4}
               className="text-gray/50 text-5xl md:text-7xl lg:text-8xl tracking-wider mt-2"
             />
@@ -139,7 +145,7 @@ const Section_First = () => {
             onClick={() => (window.location.href = "/request-for-business")}
           >
             <span className="px-4 text-sm md:text-2xl text-black uppercase font-semibold z-10 transition-all duration-300 ease-out">
-              Request for business
+              {t('heroSection.requestBusiness')}
             </span>
           </ButtonPrimary>
 
@@ -148,7 +154,7 @@ const Section_First = () => {
             onClick={() => window.open("https://app.gaian.network", "_blank")}
           >
             <span className="px-4 text-sm md:text-2xl text-black uppercase font-semibold z-10 transition-all duration-300 ease-out">
-              Launch App
+              {t('heroSection.launchApp')}
             </span>
 
             {/* Icon wrapper with smooth width transition */}
