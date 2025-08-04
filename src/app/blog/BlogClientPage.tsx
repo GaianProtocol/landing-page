@@ -38,7 +38,10 @@ const BlogClientPage: React.FC = () => {
 
   // Filter posts based on selected category
   const filteredPosts = useMemo(() => {
-    if (!selectedCategory || selectedCategory === t("blogPage.categories.all")) {
+    if (
+      !selectedCategory ||
+      selectedCategory === t("blogPage.categories.all")
+    ) {
       return posts;
     }
     return posts.filter((post) => post.category === selectedCategory);
@@ -48,7 +51,9 @@ const BlogClientPage: React.FC = () => {
   const recentPosts = filteredPosts.length > 1 ? filteredPosts.slice(1, 4) : [];
 
   const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category === t("blogPage.categories.all") ? null : category);
+    setSelectedCategory(
+      category === t("blogPage.categories.all") ? null : category
+    );
   };
 
   return (
@@ -66,7 +71,7 @@ const BlogClientPage: React.FC = () => {
             {t("blogPage.loading")}
           </div>
         ) : (
-          <>
+          <div>
             {/* Category Filter Section */}
             <div className="mb-12 bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
               {/* Removed: <h2 className="text-2xl font-bold text-gray-900 mb-4">Filter by Category</h2> */}
@@ -80,9 +85,10 @@ const BlogClientPage: React.FC = () => {
                     className={cn(
                       "rounded-full px-4 py-2 text-md font-medium transition-colors duration-200",
                       selectedCategory === category ||
-                        (selectedCategory === null && category === t("blogPage.categories.all"))
+                        (selectedCategory === null &&
+                          category === t("blogPage.categories.all"))
                         ? "bg-blue-600 text-white hover:bg-blue-700"
-
+                        : "bg-white text-gray-700 hover:bg-gray-100"
                     )}
                   >
                     {category}
@@ -99,7 +105,6 @@ const BlogClientPage: React.FC = () => {
                 <div>
                   <h2 className="text-3xl font-extrabold text-gray-900">
                     {t("blogPage.recentArticles.title")}
-
                   </h2>
                   <p className="text-gray-600 mt-1">
                     {t("blogPage.recentArticles.subtitle")}
@@ -129,7 +134,7 @@ const BlogClientPage: React.FC = () => {
                 )}
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
