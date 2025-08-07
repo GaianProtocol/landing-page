@@ -200,10 +200,11 @@ export default function Header() {
                   )}
                 >
                   {item.id}
+                  <ChevronUp className="ml-2 w-4 h-4 invisible" />
                 </div>
                 <div
                   className={cn(
-                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
+                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 -ml-2.5 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
                   )}
                 ></div>
               </button>
