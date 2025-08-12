@@ -1,10 +1,10 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { useTranslation } from "react-i18next"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
 // Assuming these are paths to SVG files, not React components, as used with next/image src prop
-import { LinkedIn, Telegram, X } from "@/assets/svgs"
-import LogoSVG from "@/assets/svgs/logo.svg"
+import { LinkedIn, Telegram, X } from "@/assets/svgs";
+import LogoSVG from "@/assets/svgs/logo.svg";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -43,7 +43,9 @@ export default function Footer() {
                 {/* Product Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">{t("footer.product.title")}</h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">
+                      {t("footer.product.title")}
+                    </h3>
                     <Link
                       href="https://app.gaian.network"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
@@ -73,7 +75,9 @@ export default function Footer() {
                 {/* Legal Column */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-col items-start gap-6 h-full">
-                    <h3 className="text-xl font-bold text-darkGreen mb-2">{t("footer.legal.title")}</h3>
+                    <h3 className="text-xl font-bold text-darkGreen mb-2">
+                      {t("footer.legal.title")}
+                    </h3>
                     <Link
                       href="https://developer.gaian.network/privacy-policy-1"
                       className="cursor-pointer text-base font-light hover:text-green-700 transition-colors hover:underline"
@@ -96,7 +100,7 @@ export default function Footer() {
                     <div className="block md:hidden gap-3 mt-4">
                       <div className="flex items-center gap-3">
                         <Link
-                          href="https://t.me/+nhhc0rADb-tiNmU1"
+                          href="https://t.me/+xtBmCVK4QLhiNjY1"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-9 h-9 flex items-center justify-center rounded-sm bg-darkGreen hover:bg-darkGreen/60 transition-colors"
@@ -151,7 +155,7 @@ export default function Footer() {
               <div className="hidden md:block gap-3">
                 <div className="flex items-center gap-3">
                   <Link
-                    href="https://t.me/+nhhc0rADb-tiNmU1"
+                    href="https://t.me/+xtBmCVK4QLhiNjY1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 flex items-center justify-center rounded-sm bg-darkGreen/80 hover:bg-darkGreen transition-colors"
@@ -199,5 +203,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
