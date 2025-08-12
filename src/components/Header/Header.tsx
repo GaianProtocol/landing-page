@@ -11,6 +11,7 @@ import { LogoSVG } from "@/assets/svgs";
 import { cn } from "@/utils/cn";
 import { LanguageSelector } from "../Lang";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 type TabItem = {
   id: string;
@@ -27,64 +28,65 @@ export default function Header() {
   const [showContactPopup, setShowContactPopup] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
+  const [active, setActive] = useState<string | null>(null);
 
   // Dynamic TAB configuration using translations
   const TAB = [
     {
-      id: t('navigation.Product.label'),
-      name: t('navigation.Product.label'),
+      id: t("navigation.Product.label"),
+      name: t("navigation.Product.label"),
       submenu: [
         {
           id: "paymentDapp",
-          name: t('navigation.Product.submenu.paymentDapp'),
+          name: t("navigation.Product.submenu.paymentDapp"),
           href: "https://app.gaian.network/",
         },
         {
           id: "qrScanner",
-          name: t('navigation.Product.submenu.qrScanner'),
+          name: t("navigation.Product.submenu.qrScanner"),
           href: "https://app.gaian.network/scan-qr",
         },
       ],
     },
-    { 
-      id: t('navigation.Developers.label'), 
-      name: t('navigation.Developers.label'), 
-      isPopup: true 
+    {
+      id: t("navigation.Developers.label"),
+      name: t("navigation.Developers.label"),
+      isPopup: true,
     },
     {
-      id: t('navigation.About.label'),
-      name: t('navigation.About.label'),
+      id: t("navigation.About.label"),
+      name: t("navigation.About.label"),
       submenu: [
-        { 
-          id: "whyGaian", 
-          name: t('navigation.About.submenu.whyGaian'), 
-          href: "/about" 
+        {
+          id: "whyGaian",
+          name: t("navigation.About.submenu.whyGaian"),
+          href: "/about",
         },
         {
           id: "brandkit",
-          name: t('navigation.About.submenu.brandkit'),
+          name: t("navigation.About.submenu.brandkit"),
           href: "https://www.figma.com/design/1QAkCQg2VJBfbqjoD40piO/Gaian-Brand-Kit?node-id=0-1&t=0R9KlhPYK71lZadO-1",
         },
       ],
     },
-    { 
-      id: t('navigation.Blog.label'), 
-      name: t('navigation.Blog.label'), 
-      href: "/blog" 
+    {
+      id: t("navigation.Blog.label"),
+      name: t("navigation.Blog.label"),
+      href: "/blog",
     },
     {
-      id: t('navigation.Support.label'),
-      name: t('navigation.Support.label'),
+      id: t("navigation.Support.label"),
+      name: t("navigation.Support.label"),
       submenu: [
         {
           id: "telegram",
-          name: t('navigation.Support.submenu.telegram'),
+          name: t("navigation.Support.submenu.telegram"),
           href: "https://t.me/+nhhc0rADb-tiNmU1",
         },
-        { 
-          id: "email", 
-          name: t('navigation.Support.submenu.email'), 
-          href: "mailto:tech@gaian.network" 
+        {
+          id: "email",
+          name: t("navigation.Support.submenu.email"),
+          href: "mailto:tech@gaian.network",
         },
       ],
     },
@@ -152,71 +154,73 @@ export default function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center ml-7 h-full relative justify-center gap-7 px-2 rounded-2xl backdrop-blur-[20px]">
-          {TAB.map((item) =>
-            item.submenu ? (
-              <div key={item.id} className="relative group h-full">
-                <button className="text-[#626566] hover:text-primary hover:font-bold font-semibold tracking-[-0.005em] text-base px-4 py-2.5 h-full flex items-center font-geist transition-all">
-                  {item.id}
-                  <ChevronUp className="invisible ml-2 w-4 h-4 transition-transform group-hover:visible group-hover:rotate-180 duration-200" />
-                </button>
-                <div className="absolute left-0 top-full mt-2 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible scale-90 translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden">
-                  <div className="p-2">
-                  {item.submenu.map((sub) => (
-                    <a
-                      key={sub.id}
-                      href={sub.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:translate-x-1 transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] rounded-xl transform opacity-0 translate-y-5 scale-95 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
-                    >
-                      <span className="font-medium">{sub.name}</span>
-                      <ChevronRight className="w-4 h-4 text-green-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-transform duration-150" />
-                    </a>
-                  ))}
-                  </div>
-                </div>
-                <div
-                  className={cn(
-                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 -ml-2.5 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
-                  )}
-                ></div>
-              </div>
-            ) : (
-              <button
+        <div
+          className="hidden lg:flex items-center ml-7 h-full w-[700px] relative justify-center gap-3 px-2 rounded-2xl backdrop-blur-[20px]"
+          onMouseLeave={() => setActive(null)} // chỉ mất khi rời toàn bộ menu
+        >
+          {TAB.map((item) => {
+            const hasSubmenu = !!item.submenu;
+
+            return (
+              <div
                 key={item.id}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleMenuItemClick(item);
-                }}
-                className="relative h-full group"
+                className="relative group h-full flex items-center"
               >
-                <div
-                  className={cn(
-                    "text-base relative rounded-xl h-full px-4 py-2.5 flex justify-center items-center font-geist",
-                    "text-[#626566]",
-                    "text-base font-normal tracking-[-0.005em]",
-                    "transition-all duration-300 ease-in-out hover:text-primary hover:font-bold font-semibold "
-                  )}
+                <button
+                  onMouseEnter={() => setActive(item.id)}
+                  onClick={(e) => {
+                    if (!hasSubmenu) {
+                      e.stopPropagation();
+                      handleMenuItemClick(item);
+                    }
+                  }}
+                  className="relative px-6 py-3 rounded-full font-semibold tracking-[-0.005em] text-base font-geist text-[#626566]"
                 >
-                  {item.id}
-                  <ChevronUp className="ml-2 w-4 h-4 invisible" />
-                </div>
-                <div
-                  className={cn(
-                    "absolute bottom-[-1px] transition-all bg-primary rounded-t-2xl duration-300 ease-in-out left-1/2 -translate-x-1/2 -ml-2.5 w-[58px] h-[3px] blur-[0.55px] opacity-0 group-hover:opacity-100"
+                  {active === item.id && (
+                    <motion.span
+                      layoutId="menu-highlight"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.8, opacity: 0 }}
+                      className="absolute inset-0 bg-[#c9edb8] rounded-full"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
                   )}
-                ></div>
-              </button>
-            )
-          )}
+
+                  <span className="relative z-10">{item.id}</span>
+                </button>
+
+                {hasSubmenu && (
+                  <div className="absolute left-0 top-full mt-2 w-60 bg-white border border-green-100 rounded-xl shadow-xl z-50 opacity-0 invisible scale-90 translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden">
+                    <div className="p-2">
+                      {item.submenu.map((sub) => (
+                        <a
+                          key={sub.id}
+                          href={sub.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 hover:translate-x-1 transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] rounded-xl transform"
+                        >
+                          <span className="font-medium">{sub.name}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Right section: Desktop Button & Mobile Menu Button */}
         <div className="relative flex justify-end items-center gap-4">
           {/* Language Selector - Desktop */}
           <LanguageSelector />
-          
+
           <a
             href="https://app.gaian.network/"
             target="_blank"
@@ -225,7 +229,7 @@ export default function Header() {
           >
             <ButtonPrimary className="px-4 py-2">
               <span className="text-black uppercase font-geist text-xl font-semibold">
-                {t('common.scanToPay')}
+                {t("common.scanToPay")}
               </span>
             </ButtonPrimary>
           </a>
@@ -313,7 +317,7 @@ export default function Header() {
               </div>
             ))}
           </nav>
-          
+
           {/* Mobile Language Selector */}
           <div className="mt-6 pt-6 border-t border-gray-200">
             <LanguageSelector variant="mobile" />

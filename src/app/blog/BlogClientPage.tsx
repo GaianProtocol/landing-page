@@ -74,10 +74,7 @@ const BlogClientPage: React.FC = () => {
           <div>
             {/* Category Filter Section */}
             <div className="mb-12 bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
-              {/* Removed: <h2 className="text-2xl font-bold text-gray-900 mb-4">Filter by Category</h2> */}
               <div className="flex flex-wrap gap-3 justify-center">
-                {" "}
-                {/* Added justify-center */}
                 {uniqueCategories.map((category) => (
                   <button
                     key={category}
