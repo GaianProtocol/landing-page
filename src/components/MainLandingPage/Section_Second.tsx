@@ -164,51 +164,31 @@ const StablecoinPaymentSection = () => {
 
         {/* Header */}
         <div className="mb-16">
-          <motion.h1
+          <div
             className="inline-block bg-white bg-opacity-10 text-white px-4 py-2 rounded-tl-xl rounded-tr-sm rounded-bl-sm rounded-br-xl text-sm font-bold mb-2"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
           >
             {/* {t("featureSection.tag")} */}
             FEATURE
-          </motion.h1>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+          <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight lg:w-1/2 w-full">
               {t("featureSection.title")}
             </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+          </div>
+          <div>
             <p className="text-xl md:text-2xl text-textGreen font-medium">
               {t("featureSection.subtitle")}
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 items-center">
           {cardsData.map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ rotateX: -90, opacity: 0 }}
-              whileInView={{ rotateX: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
+            <div key={index}>
               <Card {...card} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
