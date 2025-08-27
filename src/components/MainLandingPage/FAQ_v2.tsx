@@ -44,7 +44,7 @@ const faqData = [
 //   },
 // ];
 const FaqSection = () => {
-  const [openItem, setOpenItem] = useState<number | null>(1);
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
   const { t } = useTranslation();
 
