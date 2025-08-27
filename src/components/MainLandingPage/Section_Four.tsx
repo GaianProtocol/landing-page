@@ -50,6 +50,7 @@ const winners: WinnerItem[] = [
     prize: "1st Place",
     desc: "Solana Summer Camp VN",
     className: "h-8",
+    trackWinner: "https://x.com/Gaian_hq/status/1915372636789760016",
   },
   {
     name: "wormhole",
@@ -139,7 +140,7 @@ const WinnerCard = ({
 
 const SectionFour = () => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="bg-gray-100 py-16 bg-green-50 overflow-x-hidden">
       {/* Header */}
@@ -154,9 +155,7 @@ const SectionFour = () => {
           <span className="text-darkGreen">
             {t("winnerSection.tag.winner")}{" "}
           </span>
-          <span className="text-gray/50">
-            {t("winnerSection.tag.from")}
-          </span>
+          <span className="text-gray/50">{t("winnerSection.tag.from")}</span>
         </h1>
       </motion.div>
       {/* Marquee container với overflow hidden */}
@@ -175,6 +174,7 @@ const SectionFour = () => {
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
+                onClick={() => window.open(`${item.trackWinner}`)}
               >
                 <WinnerCard
                   logo={item.logo}
